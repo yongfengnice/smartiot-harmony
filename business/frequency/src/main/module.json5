@@ -1,0 +1,9 @@
+{
+  "module": {
+    "name": "frequency",
+    "type": "har",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}

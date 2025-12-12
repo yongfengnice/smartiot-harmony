@@ -1,0 +1,70 @@
+{
+  "app": {
+    "signingConfigs": [],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "targetSdkVersion": "5.1.1(19)",
+        "compatibleSdkVersion": "5.1.1(19)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "base",
+      "srcPath": "./base",
+    },
+    {
+      "name": "frequency",
+      "srcPath": "./business/frequency",
+    },
+    {
+      "name": "smart",
+      "srcPath": "./business/smart",
+    },
+    {
+      "name": "category",
+      "srcPath": "./business/category",
+    },
+    {
+      "name": "manager",
+      "srcPath": "./business/manager",
+    },
+    {
+      "name": "mine",
+      "srcPath": "./business/mine",
+    },
+    {
+      "name": "common",
+      "srcPath": "./common",
+    }
+  ]
+}
