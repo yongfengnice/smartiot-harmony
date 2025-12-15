@@ -9,14 +9,6 @@ export class SplashViewModel extends BaseVM<BaseState> {
     super(new BaseState());
   }
 
-  public sendEvent(eventType: BaseVMEvent): void {
-    if (eventType === SplashEventTypeEnum.JUMP_TO_MAIN) {
-      this.jumpToMainPage();
-    } else if (eventType === SplashEventTypeEnum.JUMP_TO_LOGIN) {
-      this.jumpToLoginPage();
-    }
-  }
-
   jumpToLoginPage() {
     this.homePageContext.replacePage({
       routerName: 'LoginPage'
