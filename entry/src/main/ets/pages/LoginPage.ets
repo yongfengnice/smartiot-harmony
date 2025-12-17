@@ -1,13 +1,7 @@
-import { BaseConstants, Logger, ProcessUtil, ToastUtil } from 'base';
+import { BaseConstants, ProcessUtil, ToastUtil } from 'base';
 import { common } from '@kit.AbilityKit';
 import { CommonConstants, UserInfo } from 'common';
-import { PageConstant } from '../constants/PageConstant';
 import { LoginViewModel } from '../viewmodel/LoginViewModel';
-
-@Builder
-export function LoginPageBuilder() {
-  LoginPage()
-}
 
 @Entry
 @Component
@@ -18,7 +12,7 @@ struct LoginPage {
   @State username: string = ''
   @State password: string = ''
   @State isAgree: boolean = false;
-  private loginViewModel = new LoginViewModel()
+  private viewModel = new LoginViewModel()
 
   build() {
     Column() {
@@ -65,7 +59,7 @@ struct LoginPage {
 
       Button('模拟登录')
         .onClick(() => {
-          if (this.loginViewModel.isNameOrPwdEmpty(this.username, this.password)) {
+          if (this.viewModel.isNameOrPwdEmpty(this.username, this.password)) {
             ToastUtil.showToast('请输入用户名或者密码')
             return
           }
@@ -81,13 +75,9 @@ struct LoginPage {
           //   username: 'zh',
           //   password: '123'
           // }
-          this.getUIContext().getRouter().replaceUrl({
-            url: PageConstant.MainPage
-          }).catch(() => {
-            Logger.error('LoginPage', '登录完成之后跳转到主页失败')
-          })
+          this.viewModel.jumpToMainPage(this.getUIContext())
         })
-        .backgroundColor(this.loginViewModel.isNameOrPwdEmpty(this.username, this.password) ? Color.Grey : Color.Blue)
+        .backgroundColor(this.viewModel.isNameOrPwdEmpty(this.username, this.password) ? Color.Grey : Color.Blue)
         .width(BaseConstants.MATCH_PARENT)
         .margin({ top: 20 })
         .height(50)

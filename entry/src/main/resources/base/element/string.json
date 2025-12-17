@@ -15,6 +15,22 @@
     {
       "name": "back_toast",
       "value": "再滑一次退出"
+    },
+    {
+      "name": "tab_home",
+      "value": "常用"
+    },
+    {
+      "name": "tab_smart",
+      "value": "智能"
+    },
+    {
+      "name": "tab_category",
+      "value": "分类"
+    },
+    {
+      "name": "tab_mine",
+      "value": "我的"
     }
   ]
 }

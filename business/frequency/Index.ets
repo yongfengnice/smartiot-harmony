@@ -1,1 +1,1 @@
-export { FrequencyPage } from './src/main/ets/components/FrequencyPage';
+export { FrequencyPage } from './src/main/ets/pages/FrequencyPage';

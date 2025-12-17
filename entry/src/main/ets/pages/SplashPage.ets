@@ -1,7 +1,5 @@
 import { CommonConstants, UserInfo } from 'common';
-import { Logger, ToastUtil } from 'base';
 import { SplashViewModel } from '../viewmodel/SplashViewModel';
-import { PageConstant } from '../constants/PageConstant';
 
 @Entry
 @Component
@@ -12,26 +10,8 @@ struct SplashPage {
 
   aboutToAppear(): void {
     setTimeout(() => {
-      if (this.userInfo == undefined || this.userInfo.username.trim() == '') {
-        ToastUtil.showToast('用户未登录')
-        Logger.debug('SplashPage', '用户未登录')
-        //使用router跳转的页面，需要resource/base/profile/main_pages.json里，并且页面需要标记为@Entry
-        this.getUIContext().getRouter().replaceUrl({
-          url: PageConstant.LoginPage
-        }).catch(() => {
-          Logger.debug('SplashPage', '打开登录页面失败')
-        })
-      } else {
-        ToastUtil.showToast('用户已经登录')
-        Logger.debug('SplashPage', '用户已经登录')
-        this.getUIContext().getRouter().replaceUrl({
-          url: PageConstant.MainPage
-        }).catch(() => {
-          Logger.debug('SplashPage', '打开登录页面失败')
-        })
-      }
+      this.viewModel.checkLoginState(this.getUIContext(), this.userInfo)
     }, 3000)
-
   }
 
   build() {

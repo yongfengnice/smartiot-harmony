@@ -1,9 +1,0 @@
-{
-  "module": {
-    "name": "manager",
-    "type": "har",
-    "deviceTypes": [
-      "default"
-    ]
-  }
-}

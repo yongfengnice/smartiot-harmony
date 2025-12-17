@@ -1,1 +1,1 @@
-export { MinePage } from './src/main/ets/components/MinePage';
+export { MinePage } from './src/main/ets/pages/MinePage';

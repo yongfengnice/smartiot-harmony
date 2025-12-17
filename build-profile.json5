@@ -55,10 +55,6 @@
       "srcPath": "./business/category",
     },
     {
-      "name": "manager",
-      "srcPath": "./business/manager",
-    },
-    {
       "name": "mine",
       "srcPath": "./business/mine",
     },

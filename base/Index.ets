@@ -4,8 +4,12 @@ export { WindowUtil } from './src/main/ets/util/WindowUtil';
 
 export { default as ToastUtil } from './src/main/ets/util/ToastUtil';
 
-export { ProcessUtil} from './src/main/ets/util/ProcessUtil';
+export { ProcessUtil } from './src/main/ets/util/ProcessUtil';
 
 export { default as Logger } from './src/main/ets/util/Logger';
 
 export { PageContext } from './src/main/ets/routermanager/PageContext';
+
+export { StorageKey, ProductSeriesEnum } from './src/main/ets/constant/BaseEnums';
+
+export { GlobalInfoModel } from './src/main/ets/model/GlobalInfoModel';
