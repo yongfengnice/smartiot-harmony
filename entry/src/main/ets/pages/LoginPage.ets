@@ -81,7 +81,7 @@ struct LoginPage {
         .width(BaseConstants.MATCH_PARENT)
         .margin({ top: 20 })
         .height(50)
-    }.background(0xff0000)
+    }
     .width(BaseConstants.MATCH_PARENT)
     .height(BaseConstants.MATCH_PARENT)
     .padding({ left: 12, right: 12 })

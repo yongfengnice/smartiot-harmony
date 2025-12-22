@@ -21,7 +21,7 @@ export struct SceneTabContent {
             .backgroundColor($r('app.color.color_grey'))
           }.tabBar(SubTabBarStyle.of(item)
             .selectedMode(SelectedMode.INDICATOR)
-            .board({ borderRadius: 20 })
+            //.board({ borderRadius: 20 }) SelectedMode.BOARD时才生效，设置圆角
           )
         })
       }

@@ -1,5 +1,9 @@
 import {
-  LengthMetrics, SegmentButton, SegmentButtonItemTuple, SegmentButtonOptions
+  BorderRadiusMode,
+  LengthMetrics,
+  SegmentButton,
+  SegmentButtonItemTuple,
+  SegmentButtonOptions
 } from '@kit.ArkUI';
 import { BaseConstants, GlobalInfoModel, StorageKey, ToastUtil } from 'base';
 import { CommonConstants, CreateAddDialog } from 'common';
@@ -21,9 +25,9 @@ export struct SmartPage {
     backgroundColor: $r('app.color.color_grey'),
     selectedBackgroundColor: $r('app.color.color_main'),
     backgroundBlurStyle: BlurStyle.BACKGROUND_THICK,
-    //不生效？？ start-- borderRadiusMode: BorderRadiusMode.CUSTOM, api20以后才支持
-    backgroundBorderRadius: LengthMetrics.vp(8),
-    itemBorderRadius: LengthMetrics.vp(6), //不生效 --end
+    borderRadiusMode: BorderRadiusMode.CUSTOM,
+    backgroundBorderRadius: LengthMetrics.vp(10),
+    itemBorderRadius: LengthMetrics.vp(10),
     fontSize: 14,
     selectedFontSize: 14,
     textPadding: {
