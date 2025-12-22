@@ -1,5 +1,5 @@
-import { BaseConstants, GlobalInfoModel, Logger, StorageKey } from 'base';
-import { CommonConstants, PageConstants, UserInfo } from 'common';
+import { BaseConstants, GlobalInfoModel, StorageKey } from 'base';
+import { CommonConstants, UserInfo } from 'common';
 import { MineThirdPartyContent } from '../components/MineThirdPartyContent';
 import { SceneManagerItem } from '../components/SceneManagerItem';
 import { SceneSettingItem } from '../components/SceneSettingItem';
@@ -21,7 +21,7 @@ export struct MinePage {
           this.buildSceneManager()
           this.buildSettingItems()
           MineThirdPartyContent()
-          Blank().height(60)
+          Blank().height(CommonConstants.TAB_BAR_HEIGHT + this.globalInfoModel.naviIndicatorHeight)
 
           // Text("退出登录")
           //   .onClick(() => {

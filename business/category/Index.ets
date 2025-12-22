@@ -1,1 +1,1 @@
-export { CategoryPage } from './src/main/ets/components/CategoryPage';
+export { CategoryPage } from './src/main/ets/pages/CategoryPage';

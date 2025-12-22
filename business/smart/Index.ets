@@ -1,1 +1,1 @@
-export { SmartPage } from './src/main/ets/components/SmartPage';
+export { SmartPage } from './src/main/ets/pages/SmartPage';

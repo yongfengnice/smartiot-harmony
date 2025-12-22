@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>新建</title>
+    <g id="版本二" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="管理_卡片备份-5" transform="translate(-686.000000, -369.000000)">
+            <g id="工具栏" transform="translate(32.000000, 351.000000)">
+                <g id="新建" transform="translate(654.000000, 18.000000)">
+                    <rect id="矩形" stroke="#666666" stroke-width="2" x="1" y="1" width="30" height="30" rx="3"></rect>
+                    <rect id="矩形" fill="#666666" x="6.22222222" y="15.1111111" width="19.5555556" height="1.77777778" rx="0.888888889"></rect>
+                    <path d="M7.11111111,15.1111111 L24.8888889,15.1111111 C25.3798087,15.1111111 25.7777778,15.5090802 25.7777778,16 C25.7777778,16.4909198 25.3798087,16.8888889 24.8888889,16.8888889 L7.11111111,16.8888889 C6.62019133,16.8888889 6.22222222,16.4909198 6.22222222,16 C6.22222222,15.5090802 6.62019133,15.1111111 7.11111111,15.1111111 Z" id="矩形" fill="#666666" transform="translate(16.000000, 16.000000) rotate(-270.000000) translate(-16.000000, -16.000000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

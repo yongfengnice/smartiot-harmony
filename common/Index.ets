@@ -4,8 +4,8 @@ export { CommonConstants } from './src/main/ets/constant/CommonConstants';
 
 export { PageConstants } from './src/main/ets/constant/PageConstants';
 
-export { MainPage } from './src/main/ets/components/MainPage';
-
+export { CreateAddDialog } from './src/main/ets/components/CreateAddDialog';
+export { GridComponent } from './src/main/ets/components/GridComponent';
 
 export { BaseState } from './src/main/ets/viewmodel/BaseState';
 
