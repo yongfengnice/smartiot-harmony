@@ -11,6 +11,11 @@
     "installationFree": false,
     "pages": "$profile:main_pages",
     "routerMap": "$profile:router_map",
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.INTERNET",
+      },
+    ],
     "abilities": [
       {
         "name": "EntryAbility",

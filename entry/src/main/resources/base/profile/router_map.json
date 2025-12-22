@@ -1,4 +1,9 @@
 {
   "routerMap": [
+    {
+      "name": "LogoutPage",
+      "pageSourceFile": "src/main/ets/pages/LogoutPage.ets",
+      "buildFunction": "LogoutPageBuilder"
+    }
   ]
 }

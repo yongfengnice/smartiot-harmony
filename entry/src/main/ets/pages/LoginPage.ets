@@ -1,7 +1,8 @@
-import { BaseConstants, ProcessUtil, ToastUtil } from 'base';
+import { BaseConstants, Logger, ProcessUtil, ToastUtil } from 'base';
 import { common } from '@kit.AbilityKit';
-import { CommonConstants, UserInfo } from 'common';
+import { ApiService, CommonConstants, UserInfo } from 'common';
 import { LoginViewModel } from '../viewmodel/LoginViewModel';
+import { LoginRequest } from 'common/src/main/ets/bean/Login';
 
 @Entry
 @Component
@@ -12,6 +13,7 @@ struct LoginPage {
   @State username: string = ''
   @State password: string = ''
   @State isAgree: boolean = false;
+  @State isMock: boolean = false;
   private viewModel = new LoginViewModel()
 
   build() {
@@ -57,6 +59,21 @@ struct LoginPage {
         .fontSize(12)
       }.width(BaseConstants.MATCH_PARENT)
 
+
+      Row() {
+        Checkbox(
+        ).select(this.isMock)
+          .onChange((value) => {
+            this.isMock = value
+          })
+        Text() {
+          Span('是否模拟登录，如果是就直接进来，不请求接口')
+        }
+        .fontSize(12)
+        .margin({ left: 6 })
+        .fontSize(12)
+      }.width(BaseConstants.MATCH_PARENT)
+
       Button('模拟登录')
         .onClick(() => {
           if (this.viewModel.isNameOrPwdEmpty(this.username, this.password)) {
@@ -67,15 +84,50 @@ struct LoginPage {
             ToastUtil.showToast('请先阅读并同意隐私协议')
             return
           }
-          //修改对象的字段，也会自动同步到persistent
-          this.userInfo.username = this.username
-          this.userInfo.password = this.password
-          //下面的写法修改对象的引起，也会可以也同样会自动同步到persistent
-          // this.userInfo = {
-          //   username: 'zh',
-          //   password: '123'
-          // }
-          this.viewModel.jumpToMainPage(this.getUIContext())
+          if (this.isMock) {
+            ToastUtil.showToast('登录成功')
+            this.userInfo.username = this.username
+            this.userInfo.phone = this.username
+            this.userInfo.password = this.password
+            this.viewModel.jumpToMainPage(this.getUIContext())
+            return
+          }
+
+          let loginRequest = {
+            imei: '1104a897939811e0089',
+            push_device_token: '1104a897939811e0089',
+            package_id: 'com.jinpeng.smart.iot.development',
+            app_phonenumber: '17724254272',
+            app_login_pass: 'defe12aad396f90e6b179c239de260d4' //123456ab的md5值
+          } as LoginRequest
+          ApiService.userLogin(loginRequest).then((value) => {
+            Logger.debug('userLogin', 'userLogin:' + value)
+            if (value.resultCode == 0 && value.response_obj != null && value.response_obj != undefined) {
+              ToastUtil.showToast('登录成功')
+              this.userInfo.username = value.response_obj.app_nickname
+              this.userInfo.phone = value.response_obj.app_phonenumber
+              this.userInfo.password = value.response_obj.password
+              this.viewModel.jumpToMainPage(this.getUIContext())
+            } else {
+              if (value != null && value != undefined && value.description != null && value.description != undefined) {
+                ToastUtil.showToast(value.description)
+              } else {
+                ToastUtil.showToast('登录失败1')
+              }
+            }
+          }).catch(() => {
+            ToastUtil.showToast('登录失败2')
+          })
+
+          // //修改对象的字段，也会自动同步到persistent
+          // this.userInfo.username = this.username
+          // this.userInfo.password = this.password
+          // //下面的写法修改对象的引起，也会可以也同样会自动同步到persistent
+          // // this.userInfo = {
+          // //   username: 'zh',
+          // //   password: '123'
+          // // }
+          // this.viewModel.jumpToMainPage(this.getUIContext())
         })
         .backgroundColor(this.viewModel.isNameOrPwdEmpty(this.username, this.password) ? Color.Grey : Color.Blue)
         .width(BaseConstants.MATCH_PARENT)

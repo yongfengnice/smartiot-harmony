@@ -12,6 +12,7 @@
     'smart': "file:../business/smart",
     'category': "file:../business/category",
     'mine': "file:../business/mine",
+    "@ohos/axios": "^2.2.6"
   }
 }
 

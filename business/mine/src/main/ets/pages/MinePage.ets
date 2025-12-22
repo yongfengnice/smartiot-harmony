@@ -3,19 +3,20 @@ import { CommonConstants, UserInfo } from 'common';
 import { MineThirdPartyContent } from '../components/MineThirdPartyContent';
 import { SceneManagerItem } from '../components/SceneManagerItem';
 import { SceneSettingItem } from '../components/SceneSettingItem';
+import { MineViewModel } from '../viewmodel/MineViewModel';
 
 @Component
 export struct MinePage {
   @StorageProp(StorageKey.GLOBAL_INFO) globalInfoModel: GlobalInfoModel = AppStorage.get(StorageKey.GLOBAL_INFO)!;
   @StorageLink(CommonConstants.KEY_USER_INFO) userInfo: UserInfo = new UserInfo();
-  scroller: Scroller = new Scroller();
+  private mineViewModel = new MineViewModel()
 
   build() {
     Column() {
       Blank()
         .height(this.globalInfoModel.statusBarHeight)
         .color(Color.White)
-      Scroll(this.scroller) {
+      Scroll(this.mineViewModel.scroller) {
         Column() {
           this.buildMimeAvatar()
           this.buildSceneManager()
@@ -63,11 +64,11 @@ export struct MinePage {
           bottom: 10
         })
 
-      Text('测试用户yy4272')
+      Text(this.userInfo.username)
         .fontColor(Color.Black)
         .fontSize(20)
 
-      Text('177****4272')
+      Text(this.userInfo.phone)
         .fontColor(Color.Grey)
         .fontSize(16)
         .margin({
@@ -217,6 +218,8 @@ export struct MinePage {
         icon: $r('app.media.ic_mine_setting'),
         title: '系统设置',
         subTitle: '开发'
+      }).onClick(() => {
+        this.mineViewModel.jumpToLogoutPage()
       })
 
     }
